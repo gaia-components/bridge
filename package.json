@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "homepage": "https://github.com/gaia-components/threads",
   "license": "MIT",
-  "main": "index.js",
+  "main": "threads.js",
   "devDependencies": {
     "browserify": "^9.0.8",
     "karma": "0.12.30",
