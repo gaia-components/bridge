@@ -253,7 +253,9 @@ Client.prototype = {
       .on('response', () => this.pending.delete(msg))
       .on('cancel', () => this.pending.delete(msg));
 
-    if (this.timeout) msg.set('timeout', this.timeout);
+    if (!isNaN(this.timeout) && this.timeout >= 0 ) {
+      msg.set('timeout', this.timeout);
+    }
     this.pending.add(msg);
 
     return msg;

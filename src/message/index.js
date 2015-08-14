@@ -126,7 +126,9 @@ Message.prototype = {
     // on the port else resolve promise instantly
     if (expectsResponse) {
       this.listen(this.port);
-      this._timeout = setTimeout(this.onTimeout, this.timeout);
+      // Don't set default timeout handling if timeout is set to 0
+      this._timeout = this.timeout === 0 ?
+        null : setTimeout(this.onTimeout, this.timeout);
     } else this.deferred.resolve();
 
     this.port.postMessage(serialized, this.getTransfer());
